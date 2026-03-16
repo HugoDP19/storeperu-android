@@ -112,11 +112,6 @@ public class RegistrarProducto extends AppCompatActivity {
             return;
         }
 
-        if(listaIdMarcas.size() == 0){
-            Toast.makeText(this,"Las marcas aún no cargan",Toast.LENGTH_LONG).show();
-            return;
-        }
-
         try {
 
             int posicion = spnMarcas.getSelectedItemPosition();
@@ -141,21 +136,13 @@ public class RegistrarProducto extends AppCompatActivity {
 
                     response -> {
 
-                        try {
+                        Toast.makeText(
+                                this,
+                                "Producto registrado correctamente",
+                                Toast.LENGTH_LONG
+                        ).show();
 
-                            int id = response.getInt("id");
-
-                            Toast.makeText(
-                                    this,
-                                    "Producto registrado. ID: " + id,
-                                    Toast.LENGTH_LONG
-                            ).show();
-
-                            limpiarCampos();
-
-                        } catch (Exception e){
-                            Toast.makeText(this,e.toString(),Toast.LENGTH_LONG).show();
-                        }
+                        limpiarCampos();
 
                     },
 
